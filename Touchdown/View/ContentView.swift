@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     //MARK: - PROPERTIES
-    
+    let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .compactMap({$0 as? UIWindowScene})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
     //MARK: - FUNCTIONS
     
     //MARK: - BODY
@@ -18,7 +22,9 @@ struct ContentView: View {
         ZStack {
             VStack(spacing: 0.0) {
                 NaviagtionBarComponent()
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .padding(.top , keyWindow?.safeAreaInsets.top)
                     .background(.white)
                     .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 5)
                 Spacer()
