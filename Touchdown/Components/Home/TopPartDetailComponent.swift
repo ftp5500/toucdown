@@ -14,11 +14,11 @@ struct TopPartDetailComponent: View {
     
     // MARK: - BODY
     
-
+    
     var body: some View {
-        HStack(alignment:.center , spacing:20) {
+        HStack(alignment:.center , spacing:6) {
             //: PRICE
-            VStack(alignment:.leading) {
+            VStack(alignment:.leading, spacing:6) {
                 Text("Price")
                     .font(.callout)
                 Text("$\(sampleProduct.price)")
@@ -27,21 +27,23 @@ struct TopPartDetailComponent: View {
                     .foregroundColor(.black)
                     .scaleEffect(1.35 , anchor: .leading)
                     .padding(.bottom , 100)
-
+                
             }
-          
+            .offset( y: isAppear ? 0 : -75)
+            Spacer()
             //: PHOTO
             Image(sampleProduct.image)
                 .resizable()
                 .scaledToFit()
-              
+                .offset( y: isAppear ? 0 : -35)
+            
             
         }
-        .offset( y: isAppear ? 0 : -50)
+        
         .opacity(isAppear ? 1 : 0)
         .padding()
         .onAppear {
-            withAnimation(.easeInOut(duration: 1.5)){
+            withAnimation(.easeInOut(duration: 0.75)){
                 isAppear = true
             }
         }
