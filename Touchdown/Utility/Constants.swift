@@ -11,9 +11,13 @@ import SwiftUI
 //: DATA
 //let players:[Player] = Bundle.main.decode("players.json")
 //let categories:[Category] = Bundle.main.decode("category.json")
+let products:[Product] = Bundle.main.decode("product.json")
+let brands:[Brand] = Bundle.main.decode("brand.json")
+let sampleProduct:Product = products[0]
 //: COLOR
 let colorBackground:Color = Color("ColorBackground")
-let colorGray:Color = Color(uiColor: UIColor.systemGray4) 
+let colorGray:Color = Color(uiColor: UIColor.systemGray4)
+
 //: LAYOUT
 let columnSpacign:CGFloat = 10
 let rowSpacign:CGFloat = 10

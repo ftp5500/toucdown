@@ -40,6 +40,14 @@ struct ContentView: View {
                         
                         CategoryGridComponent()
                             
+                        TitleComponent(title:"Helmets")
+                        
+                        
+                        ProductsGridCompnent()
+                        
+                        TitleComponent(title:"Brands")
+                        
+                        BrandsGridComponent()
                         
                         FooterComponent()
                             .padding(.horizontal)
@@ -59,3 +67,4 @@ struct ContentView_Previews: PreviewProvider {
             .previewDevice("iPhone 12")
     }
 }
+
