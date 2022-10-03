@@ -40,10 +40,13 @@ struct ProductDetailComponent: View {
             //: DETAIL TOP PART
             TopPartDetailComponent()
             //: DETAIL BOTTOM PART
-            //: RATING + SIZE
-            //: DESCRIPTION
-            //: QUANTITY + FAVOURITE
-            //: ADD TO CART
+            VStack{
+                //: RATING + SIZE
+                RatingAndSizeComponent()
+                //: DESCRIPTION
+                //: QUANTITY + FAVOURITE
+                //: ADD TO CART
+            }
             Spacer()
         }//: VSTACK
         .ignoresSafeArea(.all , edges: .all)
@@ -65,3 +68,5 @@ struct ProductDetailComponent_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 375, height: 812))
     }
 }
+
+

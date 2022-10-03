@@ -38,6 +38,7 @@
 		41E3A5F628E985F5004A23A5 /* NavigationBarDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3A5F528E985F5004A23A5 /* NavigationBarDetailComponent.swift */; };
 		41E3A5F828E98D58004A23A5 /* HeaderDetailsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3A5F728E98D58004A23A5 /* HeaderDetailsComponent.swift */; };
 		41E3A5FA28E9CD68004A23A5 /* TopPartDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3A5F928E9CD68004A23A5 /* TopPartDetailComponent.swift */; };
+		41E3A60028EAAD5D004A23A5 /* RatingAndSizeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3A5FF28EAAD5D004A23A5 /* RatingAndSizeComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		41E3A5F528E985F5004A23A5 /* NavigationBarDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarDetailComponent.swift; path = Touchdown/Components/Home/NavigationBarDetailComponent.swift; sourceTree = SOURCE_ROOT; };
 		41E3A5F728E98D58004A23A5 /* HeaderDetailsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderDetailsComponent.swift; path = Touchdown/Components/Home/HeaderDetailsComponent.swift; sourceTree = SOURCE_ROOT; };
 		41E3A5F928E9CD68004A23A5 /* TopPartDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopPartDetailComponent.swift; path = Touchdown/Components/Home/TopPartDetailComponent.swift; sourceTree = SOURCE_ROOT; };
+		41E3A5FF28EAAD5D004A23A5 /* RatingAndSizeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingAndSizeComponent.swift; path = Touchdown/Components/Home/RatingAndSizeComponent.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				41E3A5F528E985F5004A23A5 /* NavigationBarDetailComponent.swift */,
 				41E3A5F728E98D58004A23A5 /* HeaderDetailsComponent.swift */,
 				41E3A5F928E9CD68004A23A5 /* TopPartDetailComponent.swift */,
+				41E3A5FF28EAAD5D004A23A5 /* RatingAndSizeComponent.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				4149235C28E3389500B308D7 /* CodableBundleExtension.swift in Sources */,
 				41E3A5F228E98166004A23A5 /* ProductDetailComponent.swift in Sources */,
 				41E3A5EC28E87ED1004A23A5 /* BrandModel.swift in Sources */,
+				41E3A60028EAAD5D004A23A5 /* RatingAndSizeComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
