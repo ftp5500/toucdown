@@ -33,5 +33,6 @@ struct ProductsGridCompnent: View {
 struct ProducusGridComponent_Previews: PreviewProvider {
     static var previews: some View {
         ProductsGridCompnent()
+            .environmentObject(Shop())
     }
 }

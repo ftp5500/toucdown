@@ -62,7 +62,7 @@ struct ContentView: View {
             }//: ZSTACK
                 .ignoresSafeArea(.all , edges: .top)
             } else {
-                ProductDetailComponent(product: products[4])
+                ProductDetailComponent(product: shop.selectedProducr ?? products[0])
             }
         }
         
@@ -73,6 +73,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewDevice("iPhone 12")
+            .environmentObject(Shop())
     }
 }
 
