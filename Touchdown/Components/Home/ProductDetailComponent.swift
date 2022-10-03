@@ -10,24 +10,24 @@ import SwiftUI
 struct ProductDetailComponent: View {
     // MARK: - PROPERTIES
     let keyWindow = UIApplication.shared.connectedScenes
-
-                .filter({$0.activationState == .foregroundActive})
-
-                .map({$0 as? UIWindowScene})
-
-                .compactMap({$0})
-
-                .first?.windows
-
-                .filter({$0.isKeyWindow}).first
-
     
-
+        .filter({$0.activationState == .foregroundActive})
+    
+        .map({$0 as? UIWindowScene})
+    
+        .compactMap({$0})
+    
+        .first?.windows
+    
+        .filter({$0.isKeyWindow}).first
+    
+    var product:Product
+    
     // MARK: - FUNCTIONS
     
     // MARK: - BODY
     
- 
+    
     var body: some View {
         VStack(alignment: .leading , spacing: 5) {
             //: NAVBAR
@@ -35,36 +35,58 @@ struct ProductDetailComponent: View {
                 .padding(.horizontal)
                 .padding(.top, keyWindow?.safeAreaInsets.top)
             //: HEADER
-            HeaderDetailsComponent()
+            HeaderDetailsComponent(product: product)
                 .padding(.horizontal)
             //: DETAIL TOP PART
-            TopPartDetailComponent()
+            TopPartDetailComponent(product: product)
+                .zIndex(2)
             //: DETAIL BOTTOM PART
-            VStack{
-                //: RATING + SIZE
-                RatingAndSizeComponent()
-                //: DESCRIPTION
-                //: QUANTITY + FAVOURITE
-                //: ADD TO CART
-            }
-            Spacer()
+          
+                VStack(alignment:.center , spacing:0){
+                    //: RATING + SIZE
+                    RatingAndSizeComponent()
+                        .padding(.top , -20)
+                        .padding(.bottom , 10)
+                    //: DESCRIPTION
+                    ScrollView(.vertical , showsIndicators: false){
+                        Text(sampleProduct.description)
+                            .font(.system(.body , design: .rounded))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.leading)
+        
+                    }//: SCROLL
+                    //: QUANTITY + FAVOURITE
+                    QuantityDetailComponent()
+                        .padding(.vertical , 10)
+                    //: ADD TO CART
+                    AddToCartComponent(product: product)
+                        .padding(.bottom)
+                }//: VSTACK
+                .padding(.horizontal)
+                .background(
+                    Color.white
+                        .clipShape(CustomShape())
+                        .padding(.top ,  -105)
+                )
         }//: VSTACK
+        .zIndex(0)
         .ignoresSafeArea(.all , edges: .all)
         .background(
             Color(
-                red: sampleProduct.red,
-                green: sampleProduct.green,
-                blue: sampleProduct.blue
+                red: product.red,
+                green: product.green,
+                blue: product.blue
             )
-                .ignoresSafeArea(.all , edges: .all)
+            .ignoresSafeArea(.all , edges: .all)
         )
         
     }
 }
 // MARK: - PREVIEW
 struct ProductDetailComponent_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ProductDetailComponent()
+        ProductDetailComponent(product: products[4])
             .previewLayout(.fixed(width: 375, height: 812))
     }
 }

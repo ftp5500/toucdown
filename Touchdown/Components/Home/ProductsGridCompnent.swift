@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ProductsGridCompnent: View {
+    //MARK: - PROPERTIES
+    @EnvironmentObject var shop:Shop
+    //MARK: - FUNCTIONS
+    
+    //MARK: - BODY
+    //MARK: - PREVIEW
     var body: some View {
         LazyVGrid(columns: gridLayout, spacing:15 ){
             ForEach(products) { product in
-                ProductItemComponent(product: product)
+                Button(action: {
+                    shop.selectedProducr = product
+                    shop.showingProduct = true
+                },label: {
+                    ProductItemComponent(product: product)
+                })
+               
             }//: LOOP
         }//: GRID
         .padding(15)

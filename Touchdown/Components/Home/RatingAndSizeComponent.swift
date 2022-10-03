@@ -14,16 +14,16 @@ struct RatingAndSizeComponent: View {
             VStack(alignment:.leading , spacing: 10) {
                 Text("Ratings")
                     .font(.callout)
-                    .foregroundColor(.gray)
-                HStack{
-                    ForEach(0...5 , id: \.self){item in
+                    .foregroundColor(colorGray)
+                HStack(alignment:.center , spacing:3){
+                    ForEach(0...4 , id: \.self){item in
                         Button{
                             
                         } label: {
                             Image(systemName: "star.square.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 24, height: 24, alignment: .center)
+                            .frame(width: 28, height: 28, alignment: .center)
                             .foregroundColor(colorGray)
                     }
                     }//: STARS LOOP
@@ -36,22 +36,20 @@ struct RatingAndSizeComponent: View {
             VStack(alignment:.trailing , spacing: 10) {
                 Text("Sizes")
                     .font(.callout)
-                    .foregroundColor(.gray)
+                    .foregroundColor(colorGray)
                     
-                HStack (spacing:20){
+                HStack (alignment:.center , spacing:5){
                     ForEach(sizes, id: \.self){size in
-                        
-                        Button {
-                        
-                        } label: {
+                        Button {} label: {
                             Text(size)
-                            
+                                .font(.footnote)
+                                .fontWeight(.heavy)
                                 .foregroundColor(colorGray)
+                                .frame(width: 28, height: 28, alignment: .center)
+                                .background(Color.white.cornerRadius(5))
                                 .background(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(colorGray , lineWidth: 1)
-                                        .frame(width: 30, height: 24, alignment: .center)
-                                        .padding()
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(colorGray , lineWidth: 2)
                                 )
                         }
                             
