@@ -17,8 +17,9 @@ struct NavigationBarDetailComponent: View {
     var body: some View {
         HStack {
             Button {
-                shop.showingProduct = false
+                feedback.impactOccurred()
                 shop.selectedProducr = nil
+                shop.showingProduct = false
                 
             } label: {
                 Image(systemName: "chevron.left")

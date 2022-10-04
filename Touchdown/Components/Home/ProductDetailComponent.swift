@@ -22,6 +22,7 @@ struct ProductDetailComponent: View {
         .filter({$0.isKeyWindow}).first
     
     var product:Product
+    @EnvironmentObject var shop:Shop
     
     // MARK: - FUNCTIONS
     
@@ -35,10 +36,10 @@ struct ProductDetailComponent: View {
                 .padding(.horizontal)
                 .padding(.top, keyWindow?.safeAreaInsets.top)
             //: HEADER
-            HeaderDetailsComponent(product: product)
+            HeaderDetailsComponent()
                 .padding(.horizontal)
             //: DETAIL TOP PART
-            TopPartDetailComponent(product: product)
+            TopPartDetailComponent()
                 .zIndex(2)
             //: DETAIL BOTTOM PART
           
@@ -49,7 +50,7 @@ struct ProductDetailComponent: View {
                         .padding(.bottom , 10)
                     //: DESCRIPTION
                     ScrollView(.vertical , showsIndicators: false){
-                        Text(sampleProduct.description)
+                        Text(shop.selectedProducr?.description ?? sampleProduct.description)
                             .font(.system(.body , design: .rounded))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.leading)
@@ -59,7 +60,7 @@ struct ProductDetailComponent: View {
                     QuantityDetailComponent()
                         .padding(.vertical , 10)
                     //: ADD TO CART
-                    AddToCartComponent(product: product)
+                    AddToCartComponent()
                         .padding(.bottom)
                 }//: VSTACK
                 .padding(.horizontal)
@@ -73,9 +74,9 @@ struct ProductDetailComponent: View {
         .ignoresSafeArea(.all , edges: .all)
         .background(
             Color(
-                red: product.red,
-                green: product.green,
-                blue: product.blue
+                red: shop.selectedProducr?.red ?? sampleProduct.red,
+                green: shop.selectedProducr?.green ?? sampleProduct.green,
+                blue: shop.selectedProducr?.blue ?? sampleProduct.blue
             )
             .ignoresSafeArea(.all , edges: .all)
         )
@@ -88,6 +89,7 @@ struct ProductDetailComponent_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailComponent(product: products[4])
             .previewLayout(.fixed(width: 375, height: 812))
+            .environmentObject(Shop())
     }
 }
 

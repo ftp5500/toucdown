@@ -10,7 +10,7 @@ import SwiftUI
 struct TopPartDetailComponent: View {
     // MARK: - PROPERTIES
     @State var isAppear:Bool = false
-    var product:Product
+    @EnvironmentObject var shop:Shop
     // MARK: - FUNCTIONS
     
     // MARK: - BODY
@@ -22,7 +22,7 @@ struct TopPartDetailComponent: View {
             VStack(alignment:.leading, spacing:6) {
                 Text("Price")
                     .font(.callout)
-                Text("$\(product.price)")
+                Text("\(shop.selectedProducr?.formatedPrice ?? sampleProduct.formatedPrice)")
                     .font(.largeTitle)
                     .fontWeight(.black)
                     .foregroundColor(.black)
@@ -33,7 +33,7 @@ struct TopPartDetailComponent: View {
             .offset( y: isAppear ? 0 : -75)
             Spacer()
             //: PHOTO
-            Image(product.image)
+            Image(shop.selectedProducr?.image ?? sampleProduct.image)
                 .resizable()
                 .scaledToFit()
                 .offset( y: isAppear ? 0 : -35)
@@ -54,8 +54,9 @@ struct TopPartDetailComponent: View {
 // MARK: - PREVIEW
 struct TopPartDetailComponent_Previews: PreviewProvider {
     static var previews: some View {
-        TopPartDetailComponent(product: products[0])
+        TopPartDetailComponent()
             .previewLayout(.sizeThatFits)
             .padding()
+            .environmentObject(Shop())
     }
 }

@@ -18,8 +18,14 @@ struct ProductsGridCompnent: View {
         LazyVGrid(columns: gridLayout, spacing:15 ){
             ForEach(products) { product in
                 Button(action: {
-                    shop.selectedProducr = product
-                    shop.showingProduct = true
+                  
+                    withAnimation(.easeOut){
+                        feedback.impactOccurred()
+                        shop.showingProduct = true
+                        shop.selectedProducr = product
+                       
+                    }
+                    
                 },label: {
                     ProductItemComponent(product: product)
                 })

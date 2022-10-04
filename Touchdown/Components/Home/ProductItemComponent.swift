@@ -29,6 +29,7 @@ struct ProductItemComponent: View {
             Text(product.name)
                 .font(.title3)
                 .fontWeight(.black)
+                .foregroundColor(.black)
                 
             //: PRICE
             Text(product.formatedPrice)

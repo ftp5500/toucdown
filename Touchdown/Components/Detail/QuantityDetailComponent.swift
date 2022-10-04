@@ -15,6 +15,7 @@ struct QuantityDetailComponent: View {
     //MARK: - FUNCTIONS
     func increaseQuantity()  {
         if quantity < 100 {
+            feedback.impactOccurred()
             quantity += 1
         }
         
@@ -23,6 +24,7 @@ struct QuantityDetailComponent: View {
     
     func decreaseQuantity()  {
         if quantity > 0 {
+            feedback.impactOccurred()
             quantity -= 1
         }
     }
@@ -42,6 +44,7 @@ struct QuantityDetailComponent: View {
             Spacer()
             Button {
                 withAnimation(.easeIn(duration: 0.5)){
+                    feedback.impactOccurred()
                     if heart == "heart" {
                         heart = "heart.fill"
                     }else {
